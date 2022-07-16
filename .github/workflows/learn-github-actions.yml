@@ -14,14 +14,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8
           pip install -r requirements.txt
-  tests:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Lint with flake8
+      - name: Lint check with flake8
         run: |
           # Currently we only have main.py so we will only lint main.py
           # Stop the build if there are any Python syntax errors or undefined names
           flake8 main.py --count --select=E9,F63,F7,F82 --show-source --statistics
           # exit-zero treats all errors as warnings. The github-editor is 127 character long.
-          flake8 main.py --count --exit-zero max-complexity=10 --max-line-length=127 --statistics
+          flake8 main.py --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
