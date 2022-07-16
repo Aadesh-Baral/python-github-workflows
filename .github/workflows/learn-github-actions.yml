@@ -1,0 +1,12 @@
+name: learn-github-actions
+on: [push]
+jobs:
+  check-fastapi-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.7'
+      - run: pip install -r requirements.txt
+      - run: uvicorn --version
