@@ -15,4 +15,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: python-github-actions #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          procfile: "web: uvicorn main:app --host 0.0.0.0 --port $PORT"
+          procfile: "web: uvicorn main:api --host 0.0.0.0 --port $PORT"
