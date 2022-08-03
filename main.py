@@ -2,7 +2,6 @@ from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-
 api = FastAPI()
 
 
@@ -16,8 +15,9 @@ class Item(BaseModel):
 def system():
     return {"Hello": "World"}
 
+
 @api.get("/items/{item_id}")
-def items(item_id:int, q: Union[str, None]=None):
+def items(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 
 
