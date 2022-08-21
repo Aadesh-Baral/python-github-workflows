@@ -1,4 +1,4 @@
 fastapi==0.79.0
-uvicorn[standard]==0.14.0
+uvicorn[standard]==0.18.2
 black==22.6.0
 requests==2.7
