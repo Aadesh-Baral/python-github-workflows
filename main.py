@@ -1,6 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
+import requests
 
 api = FastAPI()
 
@@ -24,3 +25,8 @@ def items(item_id: int, q: Union[str, None] = None):
 @api.put("/items/{item_id}")
 def update_item(item_id: int, item: Item):
     return {"item_name": item.name, "item_id": item_id}
+
+@api.post("/release")
+def add_release_to_db():
+    latest_release = requests.get("https://api.github.com/repos/Aadesh-Baral/python-github-workflows/releases/latest")
+    print(latest_release.json()['name'])
