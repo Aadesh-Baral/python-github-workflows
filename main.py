@@ -27,6 +27,13 @@ def update_item(item_id: int, item: Item):
     return {"item_name": item.name, "item_id": item_id}
 
 @api.post("/release")
-def add_release_to_db():
+def add_release_version():
     latest_release = requests.get("https://api.github.com/repos/Aadesh-Baral/python-github-workflows/releases/latest")
-    print(latest_release.json()['name'])
+    release_file = open("release.txt", "w")
+    release_file.write(latest_release.json()['name'])
+    return {"release": latest_release.json()['name']}
+
+@api.get("/release")
+def get_release_version():
+    release_file = open("release.txt", "r")
+    return {"release": release_file.read()}
