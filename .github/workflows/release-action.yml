@@ -1,9 +1,11 @@
 name: release
-on: [release]
+on:
+  release:
+    types: [published]
 jobs:
   add_release:
     runs-on: ubuntu-latest
     steps:
     - name: Add release version
       run: |
-        curl -X POST "$BASE_URL/release"
+        curl -X POST "${{secrets.BASE_URL}}/release"

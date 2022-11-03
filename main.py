@@ -2,6 +2,7 @@ from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
 import requests
+import os
 
 api = FastAPI()
 
@@ -28,7 +29,10 @@ def update_item(item_id: int, item: Item):
 
 @api.post("/release")
 def add_release_version():
-    latest_release = requests.get("https://api.github.com/repos/Aadesh-Baral/python-github-workflows/releases/latest")
+    latest_release = requests.get(
+        "https://api.github.com/repos/Aadesh-Baral/python-github-workflows/releases/latest",
+        headers={'Authorization':os.env.get("GITHUB_ACCESS_TOKEN")}
+        )
     release_file = open("release.txt", "w")
     release_file.write(latest_release.json()['name'])
     return {"release": latest_release.json()['name']}
