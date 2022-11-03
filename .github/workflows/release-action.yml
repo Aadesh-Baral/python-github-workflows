@@ -6,4 +6,4 @@ jobs:
     steps:
     - name: Add release version
       run: |
-        curl -X POST "$BASE_URL/release"
+        curl -X POST "${{secrets.HEROKU_API_KEY}}/release"
