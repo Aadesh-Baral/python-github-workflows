@@ -1,23 +1,23 @@
 on:
-  workflow_dispatch
-  inputs:
-    total_requests:
-      description: 'Total number of requests to be made'
-      required: true
-      default: 1000
-    agent_id:
-      description: 'Agent ID to be used'
-      required: true
+  workflow_dispatch:
+    inputs:
+      total_requests:
+        description: 'Total number of requests to be made'
+        required: true
+        default: "1000"
+      agent_id:
+        description: 'Agent ID to be used'
+        required: true
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Run
-        uses: ./
+      - uses: actions/checkout@v3
+      - name: Setup python 3.7
+        uses: actions/setup-python@v3
         with:
-          total_requests: ${{ github.event.inputs.total_requests }}
-          agent_id: ${{ github.event.inputs.agent_id }}
+          python-version: '3.7'
+      - name: Execute Command
         run: |
           python3 one/src/main/scripts/plates.py --total_requests ${{ github.event.inputs.total_requests }} --agent_id ${{ github.event.inputs.agent_id }}
