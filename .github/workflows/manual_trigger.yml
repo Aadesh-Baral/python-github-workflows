@@ -1,3 +1,5 @@
+name: Python Script
+
 on:
   workflow_dispatch:
     inputs:
