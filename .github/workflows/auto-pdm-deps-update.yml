@@ -14,3 +14,5 @@ jobs:
 
       - name: Update dependencies
         uses: pdm-project/update-deps-action@main
+        with:
+          unconstrained: true
