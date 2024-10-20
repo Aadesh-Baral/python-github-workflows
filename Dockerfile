@@ -10,9 +10,9 @@ WORKDIR /app
 
 RUN python3 -m venv my-venv
 
+COPY requirements.txt ./requirements.txt
 SHELL ["/bin/bash", "-c"]
 RUN source my-venv/bin/activate && \
     pip3 install --upgrade pip && \
     pip3 install -r ./requirements.txt
 
-COPY requirements.txt ./requirements.txt
