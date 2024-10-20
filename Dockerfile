@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-RUN python -m venv my-venv
+RUN python3 -m venv my-venv
 
 RUN . my-venv/bin/activate
 
