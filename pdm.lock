@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:121f4338e851f5952874e0458a39f76affbf55b06a46002c5daead9e9665a620"
+content_hash = "sha256:be31d8f324644f084fa19a4d53fcb76dc4d40976163b2aeb02a1aa7e60ff8c46"
 
 [[metadata.targets]]
 requires_python = "==3.11.*"
@@ -29,26 +29,26 @@ files = [
 
 [[package]]
 name = "black"
-version = "22.10.0"
-requires_python = ">=3.7"
+version = "24.10.0"
+requires_python = ">=3.9"
 summary = "The uncompromising code formatter."
 groups = ["default"]
 dependencies = [
     "click>=8.0.0",
     "mypy-extensions>=0.4.3",
+    "packaging>=22.0",
     "pathspec>=0.9.0",
     "platformdirs>=2",
-    "tomli>=1.1.0; python_full_version < \"3.11.0a7\"",
-    "typed-ast>=1.4.2; python_version < \"3.8\" and implementation_name == \"cpython\"",
-    "typing-extensions>=3.10.0.0; python_version < \"3.10\"",
+    "tomli>=1.1.0; python_version < \"3.11\"",
+    "typing-extensions>=4.0.1; python_version < \"3.11\"",
 ]
 files = [
-    {file = "black-22.10.0-1fixedarch-cp311-cp311-macosx_11_0_x86_64.whl", hash = "sha256:5d8f74030e67087b219b032aa33a919fae8806d49c867846bfacde57f43972ef"},
-    {file = "black-22.10.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:5b9b29da4f564ba8787c119f37d174f2b69cdfdf9015b7d8c5c16121ddc054ae"},
-    {file = "black-22.10.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b8b49776299fece66bffaafe357d929ca9451450f5466e997a7285ab0fe28e3b"},
-    {file = "black-22.10.0-cp311-cp311-win_amd64.whl", hash = "sha256:21199526696b8f09c3997e2b4db8d0b108d801a348414264d2eb8eb2532e540d"},
-    {file = "black-22.10.0-py3-none-any.whl", hash = "sha256:c957b2b4ea88587b46cf49d1dc17681c1e672864fd7af32fc1e9664d572b3458"},
-    {file = "black-22.10.0.tar.gz", hash = "sha256:f513588da599943e0cde4e32cc9879e825d58720d6557062d1098c5ad80080e1"},
+    {file = "black-24.10.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:5a2221696a8224e335c28816a9d331a6c2ae15a2ee34ec857dcf3e45dbfa99ad"},
+    {file = "black-24.10.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:f9da3333530dbcecc1be13e69c250ed8dfa67f43c4005fb537bb426e19200d50"},
+    {file = "black-24.10.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:4007b1393d902b48b36958a216c20c4482f601569d19ed1df294a496eb366392"},
+    {file = "black-24.10.0-cp311-cp311-win_amd64.whl", hash = "sha256:394d4ddc64782e51153eadcaaca95144ac4c35e27ef9b0a42e121ae7e57a9175"},
+    {file = "black-24.10.0-py3-none-any.whl", hash = "sha256:3bb2b7a1f7b685f85b11fed1ef10f8a9148bceb49853e47a294a3dd963c1dd7d"},
+    {file = "black-24.10.0.tar.gz", hash = "sha256:846ea64c97afe3bc677b761787993be4991810ecc7a4a937816dd6bddedc4875"},
 ]
 
 [[package]]
@@ -102,17 +102,18 @@ files = [
 
 [[package]]
 name = "fastapi"
-version = "0.85.2"
-requires_python = ">=3.7"
+version = "0.115.3"
+requires_python = ">=3.8"
 summary = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
 groups = ["default"]
 dependencies = [
-    "pydantic!=1.7,!=1.7.1,!=1.7.2,!=1.7.3,!=1.8,!=1.8.1,<2.0.0,>=1.6.2",
-    "starlette==0.20.4",
+    "pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4",
+    "starlette<0.42.0,>=0.40.0",
+    "typing-extensions>=4.8.0",
 ]
 files = [
-    {file = "fastapi-0.85.2-py3-none-any.whl", hash = "sha256:6292db0edd4a11f0d938d6033ccec5f706e9d476958bf33b119e8ddb4e524bde"},
-    {file = "fastapi-0.85.2.tar.gz", hash = "sha256:3e10ea0992c700e0b17b6de8c2092d7b9cd763ce92c49ee8d4be10fee3b2f367"},
+    {file = "fastapi-0.115.3-py3-none-any.whl", hash = "sha256:8035e8f9a2b0aa89cea03b6c77721178ed5358e1aea4cd8570d9466895c0638c"},
+    {file = "fastapi-0.115.3.tar.gz", hash = "sha256:c091c6a35599c036d676fa24bd4a6e19fa30058d93d950216cdc672881f6f7db"},
 ]
 
 [[package]]
@@ -166,6 +167,17 @@ groups = ["default"]
 files = [
     {file = "mypy_extensions-1.0.0-py3-none-any.whl", hash = "sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d"},
     {file = "mypy_extensions-1.0.0.tar.gz", hash = "sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782"},
+]
+
+[[package]]
+name = "packaging"
+version = "24.1"
+requires_python = ">=3.8"
+summary = "Core utilities for Python packages"
+groups = ["default"]
+files = [
+    {file = "packaging-24.1-py3-none-any.whl", hash = "sha256:5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124"},
+    {file = "packaging-24.1.tar.gz", hash = "sha256:026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"},
 ]
 
 [[package]]
@@ -243,19 +255,19 @@ files = [
 
 [[package]]
 name = "requests"
-version = "2.28.1"
-requires_python = ">=3.7, <4"
+version = "2.32.3"
+requires_python = ">=3.8"
 summary = "Python HTTP for Humans."
 groups = ["default"]
 dependencies = [
     "certifi>=2017.4.17",
-    "charset-normalizer<3,>=2",
+    "charset-normalizer<4,>=2",
     "idna<4,>=2.5",
-    "urllib3<1.27,>=1.21.1",
+    "urllib3<3,>=1.21.1",
 ]
 files = [
-    {file = "requests-2.28.1-py3-none-any.whl", hash = "sha256:8fefa2a1a1365bf5520aac41836fbee479da67864514bdb821f31ce07ce65349"},
-    {file = "requests-2.28.1.tar.gz", hash = "sha256:7c5599b102feddaa661c826c56ab4fee28bfd17f5abca1ebbe3e7f19d7c97983"},
+    {file = "requests-2.32.3-py3-none-any.whl", hash = "sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6"},
+    {file = "requests-2.32.3.tar.gz", hash = "sha256:55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"},
 ]
 
 [[package]]
@@ -271,8 +283,8 @@ files = [
 
 [[package]]
 name = "starlette"
-version = "0.20.4"
-requires_python = ">=3.7"
+version = "0.41.0"
+requires_python = ">=3.8"
 summary = "The little ASGI library that shines."
 groups = ["default"]
 dependencies = [
@@ -280,8 +292,8 @@ dependencies = [
     "typing-extensions>=3.10.0; python_version < \"3.10\"",
 ]
 files = [
-    {file = "starlette-0.20.4-py3-none-any.whl", hash = "sha256:c0414d5a56297d37f3db96a84034d61ce29889b9eaccf65eb98a0b39441fcaa3"},
-    {file = "starlette-0.20.4.tar.gz", hash = "sha256:42fcf3122f998fefce3e2c5ad7e5edbf0f02cf685d646a83a08d404726af5084"},
+    {file = "starlette-0.41.0-py3-none-any.whl", hash = "sha256:a0193a3c413ebc9c78bff1c3546a45bb8c8bcb4a84cae8747d650a65bd37210a"},
+    {file = "starlette-0.41.0.tar.gz", hash = "sha256:39cbd8768b107d68bfe1ff1672b38a2c38b49777de46d2a592841d58e3bf7c2a"},
 ]
 
 [[package]]
@@ -308,25 +320,25 @@ files = [
 
 [[package]]
 name = "uvicorn"
-version = "0.19.0"
-requires_python = ">=3.7"
+version = "0.32.0"
+requires_python = ">=3.8"
 summary = "The lightning-fast ASGI server."
 groups = ["default"]
 dependencies = [
     "click>=7.0",
     "h11>=0.8",
-    "typing-extensions; python_version < \"3.8\"",
+    "typing-extensions>=4.0; python_version < \"3.11\"",
 ]
 files = [
-    {file = "uvicorn-0.19.0-py3-none-any.whl", hash = "sha256:cc277f7e73435748e69e075a721841f7c4a95dba06d12a72fe9874acced16f6f"},
-    {file = "uvicorn-0.19.0.tar.gz", hash = "sha256:cf538f3018536edb1f4a826311137ab4944ed741d52aeb98846f52215de57f25"},
+    {file = "uvicorn-0.32.0-py3-none-any.whl", hash = "sha256:60b8f3a5ac027dcd31448f411ced12b5ef452c646f76f02f8cc3f25d8d26fd82"},
+    {file = "uvicorn-0.32.0.tar.gz", hash = "sha256:f78b36b143c16f54ccdb8190d0a26b5f1901fe5a3c777e1ab29f26391af8551e"},
 ]
 
 [[package]]
 name = "uvicorn"
-version = "0.19.0"
+version = "0.32.0"
 extras = ["standard"]
-requires_python = ">=3.7"
+requires_python = ">=3.8"
 summary = "The lightning-fast ASGI server."
 groups = ["default"]
 dependencies = [
@@ -334,14 +346,14 @@ dependencies = [
     "httptools>=0.5.0",
     "python-dotenv>=0.13",
     "pyyaml>=5.1",
-    "uvicorn==0.19.0",
+    "uvicorn==0.32.0",
     "uvloop!=0.15.0,!=0.15.1,>=0.14.0; (sys_platform != \"cygwin\" and sys_platform != \"win32\") and platform_python_implementation != \"PyPy\"",
     "watchfiles>=0.13",
-    "websockets>=10.0",
+    "websockets>=10.4",
 ]
 files = [
-    {file = "uvicorn-0.19.0-py3-none-any.whl", hash = "sha256:cc277f7e73435748e69e075a721841f7c4a95dba06d12a72fe9874acced16f6f"},
-    {file = "uvicorn-0.19.0.tar.gz", hash = "sha256:cf538f3018536edb1f4a826311137ab4944ed741d52aeb98846f52215de57f25"},
+    {file = "uvicorn-0.32.0-py3-none-any.whl", hash = "sha256:60b8f3a5ac027dcd31448f411ced12b5ef452c646f76f02f8cc3f25d8d26fd82"},
+    {file = "uvicorn-0.32.0.tar.gz", hash = "sha256:f78b36b143c16f54ccdb8190d0a26b5f1901fe5a3c777e1ab29f26391af8551e"},
 ]
 
 [[package]]
