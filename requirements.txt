@@ -7,3 +7,4 @@ requests==2.28.1
 flake8
 pytest
 pytest-cov
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
