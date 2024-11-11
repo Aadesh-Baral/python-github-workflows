@@ -56,6 +56,6 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ steps.set-tag.outputs.TAG }}
+        tags: ${{ secrets.DOCKER_USERNAME }}/realrate-private:${{ env.TAG }}
         labels: ${{ steps.meta.outputs.labels }}
 
