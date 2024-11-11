@@ -9,7 +9,7 @@ on:
         default: 'latest'
   push:
     branches:
-      - develop
+      - main
     paths:
       - 'requirements.txt'
 
@@ -56,6 +56,6 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/realrate-private:${{ env.TAG }}
+        tags: ${{ secrets.DOCKER_USERNAME }}/test_workflows:${{ env.TAG }}
         labels: ${{ steps.meta.outputs.labels }}
 
