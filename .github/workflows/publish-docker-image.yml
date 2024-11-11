@@ -56,6 +56,6 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ steps.set-tag.outputs.tags }}
-        labels: ${{ steps.set-tag.outputs.labels }}
+        tags: ${{ steps.set-tag.outputs.TAG }}
+        labels: ${{ steps.meta.outputs.labels }}
 
