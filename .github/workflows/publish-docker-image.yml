@@ -41,8 +41,8 @@ jobs:
     - name: Backup existing latest as rollback tag (if exists)
       run: |
         if docker inspect ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest > /dev/null 2>&1; then
-          docker tag ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest ${{ secrets.DOCKER_USERNAME }}/realrate-private:rollback
-          docker push ${{ secrets.DOCKER_USERNAME }}/realrate-private:rollback
+          docker tag ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest-${{ env.DATE_TAG }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest-${{ env.DATE_TAG }}
         fi
 
     - name: Build and push new latest image
@@ -54,7 +54,6 @@ jobs:
         push: true
         tags: |
           ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
-          ${{ secrets.DOCKER_USERNAME }}/realrate-private:${{ env.DATE_TAG }}-${{ github.sha }}
 
   rollback:
     name: Rollback to Previous Latest
@@ -71,6 +70,6 @@ jobs:
     - name: Rollback to previous latest image
       run: |
         echo "Build or push failed. Rolling back to previous latest image..."
-        docker pull ${{ secrets.DOCKER_USERNAME }}/realrate-private:rollback
-        docker tag ${{ secrets.DOCKER_USERNAME }}/realrate-private:rollback ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
+        docker pull ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest-${{ env.DATE_TAG }}
+        docker tag ${{ secrets.DOCKER_USERNAME }}/realrate-private:${{ env.DATE_TAG }} ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
