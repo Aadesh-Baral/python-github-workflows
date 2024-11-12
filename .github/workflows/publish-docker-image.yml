@@ -31,7 +31,7 @@ jobs:
     - name: Set ISO Date
       id: set-date
       run: |
-        echo "DATE_TAG=$(date +'%Y%m%d')" >> $GITHUB_ENV
+        echo "DATE_TAG=$(date +'%Y%m%dT%H%M%S')" >> $GITHUB_ENV
 
     - name: Pull existing latest image (if exists)
       id: pull-latest
