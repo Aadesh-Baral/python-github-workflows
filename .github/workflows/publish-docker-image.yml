@@ -52,9 +52,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: |
-            ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
-          labels: ${{ steps.meta.outputs.labels }}
+          # tags: |
+          #   ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
+          # labels: ${{ steps.meta.outputs.labels }}
 
     # Rollback to previous latest image if push-latest fails
     - name: rollback
