@@ -62,5 +62,5 @@ jobs:
       run: |
         echo "Build or push failed. Rolling back to previous latest image..."
         docker rmi ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
-        docker tag ${{ secrets.DOCKER_USERNAME }}/realrate-private:${{ env.DATE_TAG }} ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
+        docker tag ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest-${{ env.DATE_TAG }} ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
