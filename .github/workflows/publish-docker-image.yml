@@ -36,13 +36,13 @@ jobs:
     - name: Pull existing latest image (if exists)
       id: pull-latest
       run: |
-        docker pull ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest || echo "No previous latest tag found"
+        docker pull ${{ secrets.DOCKER_USERNAME }}/test_workflows:latest || echo "No previous latest tag found"
 
     - name: Backup existing latest as rollback tag (if exists)
       run: |
-        if docker inspect ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest > /dev/null 2>&1; then
-          docker tag ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest-${{ env.DATE_TAG }}
-          docker push ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest-${{ env.DATE_TAG }}
+        if docker inspect ${{ secrets.DOCKER_USERNAME }}/test_workflows:latest > /dev/null 2>&1; then
+          docker tag ${{ secrets.DOCKER_USERNAME }}/test_workflows:latest ${{ secrets.DOCKER_USERNAME }}/test_workflows:latest-${{ env.DATE_TAG }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/test_workflows:latest-${{ env.DATE_TAG }}
         fi
 
     - name: Build and push new latest image
@@ -52,15 +52,15 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          # tags: |
-          #   ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
-          # labels: ${{ steps.meta.outputs.labels }}
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/test_workflows:latest
+          labels: ${{ steps.meta.outputs.labels }}
 
     # Rollback to previous latest image if push-latest fails
     - name: rollback
       if: failure() && steps.push-latest.outcome == 'failure'
       run: |
         echo "Build or push failed. Rolling back to previous latest image..."
-        docker rmi ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
-        docker tag ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest-${{ env.DATE_TAG }} ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/realrate-private:latest
+        docker rmi ${{ secrets.DOCKER_USERNAME }}/test_workflows:latest
+        docker tag ${{ secrets.DOCKER_USERNAME }}/test_workflows:latest-${{ env.DATE_TAG }} ${{ secrets.DOCKER_USERNAME }}/test_workflows:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/test_workflows:latest
